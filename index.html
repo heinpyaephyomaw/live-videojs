@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/video.js/dist/video-js.css">
+    <link rel="stylesheet" href="node_modules/videojs-resolution-switcher/lib/videojs-resolution-switcher.css">
+</head>
+
+<body>
+
+    <video id="player" class="video-js vjs-default-skin" controls preload="none" autoplay loop muted poster="https://vjs.zencdn.net/v/oceans.png">
+    </video>
+
+
+    
+    <script src="node_modules/video.js/dist/video.js"></script>
+    <script src="node_modules/videojs-resolution-switcher/lib/videojs-resolution-switcher.js"></script>
+    <script>
+        var player = videojs("player", {
+            plugins: {
+                videoJsResolutionSwitcher: {
+                    default: "low",
+                    dynamicLabel: true
+                }
+            }
+        });
+        player.updateSrc([
+            {
+                src: "https://vjs.zencdn.net/v/oceans.mp4",
+                type: "video/mp4",
+                res: 480,
+                label: "SD"
+            },
+            {
+                src: "https://vjs.zencdn.net/v/oceans.mp4",
+                type: "video/mp4",
+                res: 720,
+                label: "HD"
+            },
+            {
+                src: "https://vjs.zencdn.net/v/oceans.mp4",
+                type: "video/mp4",
+                res: 1080,
+                label: "FULLHD"
+            }
+        ]);
+
+    </script>
+
+</body>
+
+</html>
